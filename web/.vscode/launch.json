@@ -39,6 +39,44 @@
       "outputCapture": "std"
     },
     {
+      "type": "node",
+      "request": "launch",
+      "name": "Start Electron Backend",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+      },
+      "cwd": "${workspaceFolder}/electron-app",
+      "protocol": "inspector",
+      "args": [
+        ".",
+        "--log-level=debug",
+        "--hostname=localhost",
+        "--port=3000",
+        "--WORKFLOW_NOTATION_LSP=5008",
+        "--WF_LSP=5017",
+        "--WF_ANALYZER=5083",
+        "--no-cluster",
+        "--app-project-path=${workspaceRoot}/electron-app",
+        "--remote-debugging-port=9222",
+        "--no-app-auto-install"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "WF_CONFIG_LSP": "localhost:5017"
+      },
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/node_modules/@theia/*/lib/**/*.js",
+        "${workspaceRoot}/browser-app/lib/**/*.js",
+        "${workspaceRoot}/browser-app/src-gen/backend/*.js",
+        "${workspaceRoot}/packages/*/lib/**/*.js"
+      ],
+      "smartStep": true,
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std"
+    },
+    {
       "name": "Launch Browser Frontend",
       "type": "chrome",
       "request": "launch",
@@ -51,12 +89,8 @@
       "request": "launch",
       "name": "Launch LSP Extension",
       "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}/coffee-workflow-analyzer-editor"
-      ],
-      "outFiles": [
-        "${workspaceRoot}/coffee-workflow-analyzer-editor/out/**/*.js"
-      ],
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}/coffee-workflow-analyzer-editor"],
+      "outFiles": ["${workspaceRoot}/coffee-workflow-analyzer-editor/out/**/*.js"],
       "sourceMaps": true
     }
   ]

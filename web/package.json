@@ -27,6 +27,7 @@
   "workspaces": {
     "packages": [
       "browser-app",
+      "electron-app",
       "configs",
       "coffee-cpp-extension/",
       "coffee-editor-extension/",
@@ -48,6 +49,7 @@
     "**/@theia/core": "1.20.0",
     "**/@theia/debug": "1.20.0",
     "**/@theia/editor": "1.20.0",
+    "**/@theia/electron": "1.20.0",
     "**/@theia/file-search": "1.20.0",
     "**/@theia/filesystem": "1.20.0",
     "**/@theia/git": "1.20.0",
