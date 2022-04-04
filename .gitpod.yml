@@ -2,5 +2,5 @@ image:
   file: Dockerfile
 ports:
 - port: 3000
-tasks:
-- command: docker run -it -p 0.0.0.0:3000:3000 coffee-editor:latest yarn start
+#tasks:
+#- command: docker run -it -p 0.0.0.0:3000:3000 coffee-editor:latest yarn start
