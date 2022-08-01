@@ -9,6 +9,6 @@ FROM gitpod/workspace-full
 
 RUN sudo apt-get update && \
 	sudo apt-get upgrade -y && \
-	sudo apt-get install -y default-jdk maven && \
+	sudo apt-get install -y openjdk-17-jdk openjdk-17-jre maven && \
 	sudo apt-get install wget build-essential cmake libopenblas-dev gnupg curl make git g++-multilib clangd-10 gdb libsecret-1-dev -y && \
 	sudo apt-get install xvfb libx11-dev libxkbfile-dev libxml2-utils -y
