@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019-2022 EclipseSource and others.
+ * Copyright (c) 2019-2023 EclipseSource and others.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -56,11 +56,13 @@ public class WorkflowSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	}
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Assertion returns Assertion
 	 *
 	 * Constraint:
 	 *     (before=STRING after=STRING)
+	 * </pre>
 	 */
 	protected void sequence_Assertion(ISerializationContext context, Assertion semanticObject) {
 		if (errorAcceptor != null) {
@@ -77,11 +79,13 @@ public class WorkflowSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     ProbabilityConfiguration returns ProbabilityConfiguration
 	 *
 	 * Constraint:
 	 *     (low=Float medium=Float high=Float)
+	 * </pre>
 	 */
 	protected void sequence_ProbabilityConfiguration(ISerializationContext context, ProbabilityConfiguration semanticObject) {
 		if (errorAcceptor != null) {
@@ -101,11 +105,13 @@ public class WorkflowSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     WorkflowConfiguration returns WorkflowConfiguration
 	 *
 	 * Constraint:
 	 *     (machine=STRING model=STRING probConf=ProbabilityConfiguration? (assertions+=Assertion assertions+=Assertion*)?)
+	 * </pre>
 	 */
 	protected void sequence_WorkflowConfiguration(ISerializationContext context, WorkflowConfiguration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
