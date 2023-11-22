@@ -11,8 +11,8 @@ RUN sudo apt-get update && \
 	sudo apt-get upgrade -y 
 
 # misc dependencies
-RUN	sudo apt-get install build-essential libopenblas-dev gnupg g++-multilib clangd-10 libsecret-1-dev -y && \
-	sudo apt-get install xvfb libx11-dev libxkbfile-dev libxml2-utils -y
+RUN	sudo apt-get install build-essential libopenblas-dev gnupg g++-multilib clang libsecret-1-dev -y
+RUN sudo apt-get install xvfb libx11-dev libxkbfile-dev libxml2-utils -y
 
 USER gitpod
 
