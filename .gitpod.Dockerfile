@@ -10,12 +10,14 @@ FROM gitpod/workspace-full
 RUN sudo apt-get update && \
 	sudo apt-get upgrade -y 
 
-# upgrade Java from 11 to 17
-RUN sudo sdk install java 17.0.9-zulu < /dev/null
-
-# old way of updating Java that needs more tinkering so replaced with sdkman above
-#	sudo apt-get install -y openjdk-17-jdk openjdk-17-jre maven && 
-
 # misc dependencies
-RUN	sudo apt-get install wget build-essential cmake libopenblas-dev gnupg curl make git g++-multilib clangd-10 gdb libsecret-1-dev -y && \
+RUN	sudo apt-get install build-essential libopenblas-dev gnupg g++-multilib clangd-10 libsecret-1-dev -y && \
 	sudo apt-get install xvfb libx11-dev libxkbfile-dev libxml2-utils -y
+
+USER gitpod
+
+# Use Java 17 (default in image is Java 11)
+# https://www.gitpod.io/docs/introduction/languages/java#setting-up-a-custom-dockerfile
+RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
+	sdk install java 17.0.3-ms && \
+	sdk default java 17.0.3-ms"
